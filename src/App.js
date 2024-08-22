@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import CitySelector from "./components/CitySelector";
+import CityCard from "./components/CityCard";
 
 function App() {
+  const [card, setCard] = useState({
+    name: "Токио",
+    description:
+      "Столица Японии, известная своими неоновыми огнями, многолюдностью и современной архитектурой.",
+    imageUrl:
+      "https://www.topmagazine.cz/wp-content/uploads/2021/06/tokio-1024x576.jpg",
+    facts: [
+      "Токио - самый населенный мегаполис в мире.",
+      "Здесь расположена самая высокая башня в Японии - Токийская башня.",
+      "В Токио проходят множество культурных событий и фестивалей.",
+    ],
+  });
+
+  const setSelectedCard = (selectedCard) => {
+    setCard(selectedCard);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <CitySelector selectedCard={card} setSelectedCard={setSelectedCard} />
+      <CityCard {...card} />
     </div>
   );
 }

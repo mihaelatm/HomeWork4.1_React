@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.city__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city__image {
+  width: 500px;
+  height: 400px;
+}
